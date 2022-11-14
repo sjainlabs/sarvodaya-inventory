@@ -1,7 +1,12 @@
 
 FROM maven:3.6.0-jdk-11-slim AS build
-COPY src /home/app/src
-COPY pom.xml /home/app
+
+RUN mkdir -p /tmp
+WORKDIR /tmp
+
+
+COPY /tmp/src /home/app/src
+COPY /tmp/pom.xml /home/app
 RUN mvn  /home/app/pom.xml clean install
 
 
