@@ -1,0 +1,8 @@
+<!--<p>search works!</p>-->
+
+<ng2-smart-table [settings]="settings"  [source]="data"  (userRowSelect)="onUserRowSelect($event)"></ng2-smart-table>
+
+<div  *ngIf="selectedRows!== 'undefined'">
+   <button (click)="createOrder()"> Click For Order</button>
+</div>
+

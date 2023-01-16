@@ -1,0 +1,24 @@
+<!--<p>order works!</p>-->
+
+<table>
+  <tr>
+    <th>Product Name</th>
+    <th>Company Name</th>
+    <th>Quantity</th>
+    <th>Buyer Name</th>
+    <th>Buyer Company</th>
+  </tr>
+  <tr *ngFor="let rows of selectedRows; let i = index">
+    <td>{{rows.productName}}</td>
+    <td>{{rows.companyName}}</td>
+    <td> <input type="text" id="saleQuantity" name="saleQuantity"></td>
+    <td> <input type="text" id="buyerName" name="buyerName"></td>
+    <td> <input type="text" id="buyerCompany" name="buyerCompany"></td>
+
+  </tr>
+
+</table>
+<button (click)="createOrder()"> Submit Order</button>
+
+
+
