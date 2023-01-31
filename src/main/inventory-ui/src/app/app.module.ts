@@ -11,6 +11,7 @@ import { SaleComponent } from './sale/sale.component';
 import {NgChartsConfiguration, NgChartsModule} from "ng2-charts";
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { LineChartComponent } from './line-chart/line-chart.component';
+import { InvoiceComponent } from './invoice/invoice.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { LineChartComponent } from './line-chart/line-chart.component';
     UiHeaderComponent,
     SaleComponent,
     BarChartComponent,
-    LineChartComponent
+    LineChartComponent,
+    InvoiceComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,10 @@ import { LineChartComponent } from './line-chart/line-chart.component';
         path: 'sales',
         component: SaleComponent
       } ,
+      {
+        path: 'invoice',
+        component: InvoiceComponent
+      } ,
       { path: '',   redirectTo: '/inventory', pathMatch: 'full' }, // redirect to `first-component`
     ]),
     RouterModule.forChild([
@@ -60,6 +66,10 @@ import { LineChartComponent } from './line-chart/line-chart.component';
         path: 'sales',
         component: SaleComponent
       } ,
+      {
+        path: 'invoice',
+        component: InvoiceComponent
+      },
       { path: '',   redirectTo: '/inventory', pathMatch: 'full' }, // redirect to `first-component`
     ])
 

@@ -1,5 +1,5 @@
 <!--<p>order works!</p>-->
-
+<div *ngIf="orderCompleted!=='order-created'">
 <table>
   <tr>
     <th>Product Name</th>
@@ -11,14 +11,39 @@
   <tr *ngFor="let rows of selectedRows; let i = index">
     <td>{{rows.productName}}</td>
     <td>{{rows.companyName}}</td>
-    <td> <input type="text" id="saleQuantity" name="saleQuantity"></td>
-    <td> <input type="text" id="buyerName" name="buyerName"></td>
-    <td> <input type="text" id="buyerCompany" name="buyerCompany"></td>
+    <td> <input type="text" id="saleQuantity" name="saleQuantity" (input)="setSaleQunatity($event,i)"></td>
+    <td> <input type="text" id="buyerName" name="buyerName" (input)="setBuyerName($event,i)"></td>
+    <td> <input type="text" id="buyerCompany" name="buyerCompany" (input)="setBuyerCompany($event,i)"></td>
 
   </tr>
 
 </table>
-<button (click)="createOrder()"> Submit Order</button>
+<button (click)="submitOrder()"> Submit Order</button>
+</div>
+
+<div *ngIf="orderCompleted==='order-created'">
+  <table>
+    <tr>
+      <th>Product Name</th>
+      <th>Company Name</th>
+      <th>Quantity</th>
+      <th>Buyer Name</th>
+      <th>Buyer Company</th>
+      <th>Order</th>
+    </tr>
+    <tr *ngFor="let rows of selectedRows; let i = index">
+      <td>{{rows.productName}}</td>
+      <td>{{rows.companyName}}</td>
+      <td> <input type="text" id="saleQuantity" name="saleQuantity" (input)="setSaleQunatity($event,i)"></td>
+      <td> <input type="text" id="buyerName" name="buyerName" (input)="setBuyerName($event,i)"></td>
+      <td> <input type="text" id="buyerCompany" name="buyerCompany" (input)="setBuyerCompany($event,i)"></td>
+      <td> {{orderCompleted}} </td>
+
+    </tr>
+
+  </table>
+  <button (click)="generateInvoice()"> Generate Invoice</button>
+</div>
 
 
 
